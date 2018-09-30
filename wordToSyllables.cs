@@ -21,7 +21,7 @@
         /// Convrt any word into Sylablles
         /// </summary>
         /// <param name="word"></param>
-        /// <returns></returns>
+        /// <returns>List of string wordToSyllables</returns>
         public List<string> convertWordToSyllables(string word)
         {
             List<string> wordToSyllables = new List<string>();
