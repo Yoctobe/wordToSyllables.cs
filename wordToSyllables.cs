@@ -55,7 +55,7 @@
 
             }
 
-            // check if the last syllable isn't composed of only consonants exemple : ng rt etc
+            // check if the last syllable isn't composed of only consonants, for example : ng rt etc
 
             if (!contains_vowels(wordToSyllables.Last()) && wordToSyllables.Count > 2)
             {
