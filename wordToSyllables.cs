@@ -2,6 +2,7 @@
     {
         private char[] vowels = { 'a', 'e', 'i', 'o', 'u', 'ä', 'ö', 'ü' };
 
+
         /// <summary>
         /// Chack whether string contains vowels
         /// </summary>
@@ -16,17 +17,22 @@
             }
             return containsVowels;
         }
-
-        /// <summary>
-        /// Convrt any word into Sylablles
-        /// </summary>
-        /// <param name="word"></param>
-        /// <returns>List of string wordToSyllables</returns>
-        public List<string> convertWordToSyllables(string word)
+        private string word = "Nothing";
+        
+        public wordToSyllables () { Syllables(); }
+        
+        //Setting property : Word
+         public string Word 
         {
-            List<string> wordToSyllables = new List<string>();
-
+            get { return word;} set { if(!string.IsNullOrEmpty(value)) { word = value; } else { word = ""; } }
+        }
+       
+      
+        // Convert the word into Syllables
+        public List<string> Syllables ()
+        {
             string pattern = "";
+            List<string> Syllables = new List<string>();
 
             // convert the word into a binary string
 
@@ -50,20 +56,24 @@
 
             foreach (string patt in patterns)
             {
-                wordToSyllables.Add(word.Substring(startIndex, patt.Length));
+                Syllables.Add(word.Substring(startIndex, patt.Length));
                 startIndex += patt.Length;
 
             }
 
-            // check if the last syllable isn't composed of only consonants, for example : ng rt etc
+            // check if the last syllable isn't composed of only consonants exemple : ng rt etc
 
-            if (!contains_vowels(wordToSyllables.Last()) && wordToSyllables.Count > 2)
+            if (!contains_vowels(Syllables.Last()) && Syllables.Count > 2)
             {
-                wordToSyllables[wordToSyllables.Count - 2] += wordToSyllables.Last();
-                wordToSyllables.RemoveAt(wordToSyllables.Count - 1);
+                Syllables[Syllables.Count - 2] += Syllables.Last();
+                Syllables.RemoveAt(Syllables.Count - 1);
             }
 
-            return wordToSyllables;
+            return Syllables;
 
         }
+      
+       
+
+
     }
